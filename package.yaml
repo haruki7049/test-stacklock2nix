@@ -1,0 +1,13 @@
+name: test-stacklock2nix
+version: 0.1.0.0
+
+dependencies:
+  - base
+
+ghc-options:
+  - -Wall
+
+executables:
+  test-stacklock2nix:
+    main: Main.hs
+    source-dirs: src
