@@ -1,4 +1,4 @@
-import Control.Applicative
+import Control.Applicative()
 import Options
 
 data MainOptions = MainOptions
@@ -19,7 +19,7 @@ instance Options MainOptions where
         "Whether to be quiet."
 
 main :: IO ()
-main = runCommand $ \opts args ->
+main = runCommand $ \opts _args ->
   if optQuiet opts
     then return ()
     else putStrLn (optMessage opts)
