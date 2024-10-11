@@ -26,7 +26,7 @@
           stacklock = pkgs.stacklock2nix {
             stackYaml = ./stack.yaml;
           };
-          haskell-pkg-set = pkgs.haskell.packages.ghcHEAD.override (oldAttrs: {
+          haskell-pkg-set = pkgs.haskell.packages.ghc966.override (oldAttrs: {
             inherit (stacklock) all-cabal-hashes;
 
             overrides = pkgs.lib.composeManyExtensions [
@@ -55,15 +55,7 @@
             default = test-stacklock2nix;
           };
 
-          devShells.default = pkgs.mkShell {
-            packages = [
-              pkgs.stack
-              pkgs.cabal-install
-              pkgs.ghc
-              pkgs.haskell-language-server
-              pkgs.nil
-            ];
-          };
+          devShells.default = pkgs.callPackage ./shell.nix { };
         };
     };
 }

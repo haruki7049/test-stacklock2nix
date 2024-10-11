@@ -1,7 +1,5 @@
-snapshot:
-  url: https://raw.githubusercontent.com/commercialhaskell/stackage-snapshots/master/lts/22/37.yaml
-packages:
-  - "."
+snapshot: lts-22.37
 nix:
   enable: true
   pure: true
+  shell-file: shell.nix
