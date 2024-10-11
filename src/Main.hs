@@ -1,12 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
+import Control.Applicative
+import Options
 
-module Main where
+data MainOptions = MainOptions
+  { optMessage :: String
+  , optQuiet :: Bool
+  }
 
-import System.Console.CmdArgs
+instance Options MainOptions where
+  defineOptions = pure MainOptions
+    <*> simpleOption "message" "Hello world!"
+          "A message to show the user."
+    <*> simpleOption "quiet" False
+         "Whether to be quiet."
 
-data Sample = Sample {hello :: String}
-  deriving (Show, Data, Typeable)
-
-sample = Sample {hello = def}
-
-main = print =<< cmdArgs sample
+main :: IO ()
+main = runCommand $ \opts args ->
+  if optQuiet opts
+      then return ()
+      else putStrLn (optMessage opts)

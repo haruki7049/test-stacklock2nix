@@ -2,7 +2,7 @@ name: test-stacklock2nix
 version: 0.1.0.0
 dependencies:
   - base
-  - cmdargs
+  - options
 ghc-options:
   - -Wall
 executables:
