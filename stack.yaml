@@ -1,4 +1,5 @@
-snapshot: lts-22.37
+snapshot: nightly-2024-10-11
+compiler: ghc-9.8.2
 nix:
   enable: true
   pure: true
