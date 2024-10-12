@@ -1,4 +1,4 @@
-import Control.Applicative()
+import Control.Applicative ()
 import Options
 
 data MainOptions = MainOptions
